@@ -158,7 +158,7 @@
 	transition: color 0.5s ease; 
 	}
 
-    .article-chk { 
+    .article-check { 
 	appearance: none; 
 	-webkit-appearance: none; 
 	-moz-appearance: none; 
@@ -172,7 +172,7 @@
 	position: relative; 
 	margin-bottom: -1%; 
 	}
-    .article-chk:checked { 
+    .article-check:checked { 
 	background-color: var(--main-color); 
 	border-color: white; 
 	}
@@ -234,5 +234,6 @@
 	body.theme-orange tr.highlighted {
 	  background-color: rgba(222, 106, 12, 0.25);
 	}
+
 
 
