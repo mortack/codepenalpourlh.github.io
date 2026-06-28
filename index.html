@@ -1,30 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link href="style.css" rel="stylesheet">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
   <title>Code Pénal USA</title>
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-</head>
-<body class="theme-red">
+  </head>
+<body>
   <header>
-    <div class="header-bg">
-      <div class="bg red"></div>
-      <div class="bg green"></div>
-      <div class="bg yellow"></div>
-	  <div class="bg blue"></div>
-	  <div class="bg orange"></div>
-    </div>
     <div class="header-content">
       <h1>Code Pénal USA</h1>
-      <div id="color-buttons">
-        <button onclick="setTheme('red')">Blackwater</button>
-		<button onclick="setTheme('blue')">Saint-Denis</button>
-        <button onclick="setTheme('green')">Strawberry</button>
-        <button onclick="setTheme('yellow')">Valentine</button>
-		<button onclick="setTheme('orange')">Rhodes</button>
-      </div>
     </div>
   </header>
 
@@ -62,7 +47,7 @@
 			<td><input type="number" class="amende" min="0" max="50" value="25"></td>
 			<td><input type="number" class="amende-max" min="50" max="50" value="50"></td>
 			<td><input type="number" class="temps" min="0" value="0"></td>
-			<td><input type="number" class="temps-Max" min="20" max="20" value="10"></td>
+			<td><input type="number" class="temps-Max" min="20" max="20" value="20"></td>
 		  </tr>
 		  <tr>
 			<td><input type="checkbox" class="article-check" data-article="1.4"> 1.4</td>
@@ -219,7 +204,7 @@
 		  <tr>
 			<td><input type="checkbox" class="article-check" data-article="1.23"> 1.23</td>
 			<td>Recel médical</td>
-			<td><input type="number" class="amende" min="10" max="0" value="10"></td>
+			<td><input type="number" class="amende" min="0" max="10" value="10"></td>
 			<td><input type="number" class="amende-max" min="0" max="0" value="0"></td>
 			<td><input type="number" class="temps" min="0" value="0"></td>
 			<td><input type="number" class="temps-Max" min="0" max="0" value="0"></td>
@@ -461,7 +446,7 @@
 		  <td><input type="number" class="temps-Max" min="0" max="0" value="0"></td>
 		</tr>
 		<tr>
-		  <td><input type="checkbox" class="article-check" data-article="2.26"> 2.27</td>
+		  <td><input type="checkbox" class="article-check" data-article="2.27"> 2.27</td>
 		  <td>Menaces de mort</td>
 		  <td><input type="number" class="amende" min="0" max="400" value="200"></td>
 		  <td><input type="number" class="amende-max" min="0" max="400" value="400"></td>
@@ -643,189 +628,287 @@
 			</table>
 			<!-- Fin crimes -->
 			<!-- Debut saisie -->
-			<table style ="margin-top: 1em;">
+			<table id="tableSaisie" style ="margin-top: 1em;">
         <tr>
           <th>Article</th>
           <th>Nom</th>
-		  <th>Quantité(s)</th>
-          <th>Amende($)</th>
+		  <th>Quantité</th>
 		  <th>Amende max($)</th>
         </tr>
 				<tr>
 				  <td><input type="checkbox" class="article-check" data-article="4.1"> 4.1</td>
 				  <td>Drogues</td>
-				  <td><input type="number" class="Quantité" min="1" value="1"></td>
-				  <td><input type="number" class="amendeSaisie" min="1.5" max="1.5" value="1.5"></td>
 				</tr>
 				<tr>
 				  <td><input type="checkbox" class="article-check" data-article="4.2"> 4.2</td>
 				  <td>Alcool de contrebande</td>
-				  <td><input type="number" class="Quantité" min="1" value="1"></td>
-				  <td><input type="number" class="amendeSaisie" min="1.5" max="1.5" value="1.5"></td>
 				</tr>
 				<tr>
 				  <td><input type="checkbox" class="article-check" data-article="4.4"> 4.4</td>
 				  <td>Objets illégaux(Voir tableau des amendes)</td>
 				  <td><input type="number" class="Quantité" min="1" value="1"></td>
-				  <td><input type="number" class="amende" min="0" value="0"></td>
 				  <td><input type="number" class="amende-max" min="0" value="1500"></td>
 				</tr>
 				<tr>
 				  <td><input type="checkbox" class="article-check" data-article="4.5"> 4.5</td>
-				  <td>Butin et recel (rubis, diamant, bijoux)</td>
+				  <td>Butin et recel (rubis, diamant, bijoux / par objets)</td>
 				  <td><input type="number" class="Quantité" min="1" value="1"></td>
-				  <td><input type="number" class="amendeSaisie" min="20" max="20" value="20"></td>
+				  <td><input type="number" class="amende-max" min="20" max="20" value="20"></td>
 				</tr>
 				<tr>
 				  <td><input type="checkbox" class="article-check" data-article="4.6"> 4.6</td>
 				  <td>Traffic d'or (130$ par lingot)</td>
 				  <td><input type="number" class="Quantité" min="1" value="1"></td>
-				  <td><input type="number" class="amendeSaisie" min="130" max="130" value="130"></td>
 				</tr>
 				<tr>
 				  <td><input type="checkbox" class="article-check" data-article="4.7"> 4.7</td>
 				  <td>Traffic d'argent</td>
 				  <td><input type="number" class="Quantité" min="1" value="1"></td>
-				  <td><input type="number" class="amendeSaisie" min="1" max="1" value="1"></td>
 				</tr>
 				<tr>
 				  <td><input type="checkbox" class="article-check" data-article="4.8"> 4.8</td>
 				  <td>Possession d'arme illégale - Arme de poing</td>
-				  <td><input type="number" class="Quantité" min="1" value="1"></td>
-				  <td><input type="number" class="amendeSaisie" min="0" value="500"></td>
 				  <td><input type="number" class="amende-max" min="0" value="500"></td>
 				</tr>
 				<tr>
 				  <td><input type="checkbox" class="article-check" data-article="4.8a"> 4.8</td>
 				  <td>Possession d'arme illégale - Arme d'épaule</td>
-				  <td><input type="number" class="Quantité" min="1" value="1"></td>
-				  <td><input type="number" class="amendeSaisie" min="0" value="1000"></td>
 				  <td><input type="number" class="amende-max" min="0" value="2000"></td>
 				</tr>
 			</table>
+
+  
+  <section class="calcul-saisie" aria-labelledby="saisie-titre">
+    <h2 id="saisie-titre">Calculateur de saisies</h2>
+    <table class="saisie-table">
+      <thead>
+        <tr>
+          <th>Objet</th>
+          <th>Quantité</th>
+          <th>Calcul</th>
+        </tr>
+      </thead>
+      <tbody id="saisie-body"></tbody>
+    </table>
+    <div class="saisie-totale" id="saisie-totale">TOTAL : 0$</div>
+    <div class="calculateur-fonction">
+      <button type="button" id="saisie-reset">Réinitialiser</button>
+      <button type="button" id="saisie-copie">Copier le détail</button>
+    </div>
+    <div class="copy-status" id="saisie-copie-status" aria-live="polite"></div>
+  </section>
+
     </div>
     <div class="right">
-      <h2>Export texte brut</h2>
+      <h2 style="font-weight: bold; text-decoration: underline; font-size: 32px; text-align: center;"> Export articles et saisies.</h2>
       <div class="export-text" id="export-area" contenteditable="true"></div>
       <div class="total-box" id="total-box">Total Amende: 0 $</div>
-      <button id="export-btn">Exporter texte brut</button>
+      <button id="export-btn">Exporter texte</button>
     </div>
   </div>
 
-	<script> // Output text
-		document.getElementById('export-btn').addEventListener('click', function() {
-		  const tables = document.querySelectorAll('.left table');
-		  let output = '';
-		  let totalAmende = 0;
-		  let totalTemps = 0;
-		  let totalAmendeMaxVal = 0;
-		  let totalSaisies = 0;
+  <script>
+    document.getElementById('export-btn').addEventListener('click', function() {
+      const tables = document.querySelectorAll('.left table:not(.saisie-table)');
+      let output = '';
+      let totalAmende = 0;
+      let totalTemps = 0;
+      let totalAmendeMaxVal = 0;
+      let totalSaisies = 0;
 
-		  tables.forEach(table => {
-			const rows = table.querySelectorAll('tr');
-			rows.forEach((row, index) => {
-			  if (index === 0) return;
+      function formatAmount(value) {
+        const rounded = Math.round((value + Number.EPSILON) * 100) / 100;
+        return Number.isInteger(rounded) ? String(rounded) : String(rounded).replace(/0+$/, '').replace(/\.$/, '');
+      }
 
-			  const chk = row.querySelector('.article-check');
-			  if (chk && chk.checked) {
-				const article = chk.getAttribute('data-article');
-				const nom = row.cells[1].textContent;
+      tables.forEach(table => {
+        table.querySelectorAll('tr').forEach((row, index) => {
+          if (index === 0) return;
 
-				const amendeInput = row.querySelector('.amende');
-				const amendeMaxInput = row.querySelector('.amende-max');
-				const tempsInput = row.querySelector('.temps');
-				const tempsMaxInput = row.querySelector('.temps-Max');
-				const quantiteInput = row.querySelector('.Quantité');
-				const amendeSaisieInput = row.querySelector('.amendeSaisie');
+          const chk = row.querySelector('.article-check');
+          if (!chk || !chk.checked) return;
 
-				const amendeVal = amendeInput ? parseFloat(amendeInput.value) || 0 : 0;
-				const amendeMaxVal = amendeMaxInput ? parseFloat(amendeMaxInput.value) || 0 : 0;
-				const tempsVal = tempsInput ? parseFloat(tempsInput.value) || 0 : 0;
-				const tempsMaxVal = tempsMaxInput ? parseFloat(tempsMaxInput.value) || 0 : 0;
-				const quantiteVal = quantiteInput ? parseFloat(quantiteInput.value) || 0 : 0;
-				const amendeSaisieVal = amendeSaisieInput ? parseFloat(amendeSaisieInput.value) || 0 : 0;
+          const article = chk.getAttribute('data-article');
+          const nom = row.cells[1].textContent.trim();
+		  
+		  if (table.id === "tableSaisie") {
+				output += 'Article ' + article + ' - ' + nom + '\n\n';
+				return;
+			}
+          const amendeInput = row.querySelector('.amende');
+          const amendeMaxInput = row.querySelector('.amende-max');
+          const tempsInput = row.querySelector('.temps');
+          const tempsMaxInput = row.querySelector('.temps-Max');
+          const amendeVal = amendeInput ? parseFloat(amendeInput.value) || 0 : 0;
+          const amendeMaxVal = amendeMaxInput ? parseFloat(amendeMaxInput.value) || 0 : 0;
+          const tempsVal = tempsInput ? parseFloat(tempsInput.value) || 0 : 0;
+          const tempsMaxVal = tempsMaxInput ? parseFloat(tempsMaxInput.value) || 0 : 0;
 
-				let ligne = 'Article ' + article + ' – ' + nom + '\n';
+          output += 'Article ' + article + ' - ' + nom + '\n';
+          output += 'Maximale : ' + amendeMaxVal + ' $, ' + tempsMaxVal + ' TIG\n';
+          output += 'Retenu : ' + amendeVal + ' $, ' + tempsVal + ' TIG\n\n';
 
-				if (amendeSaisieInput) {
-				  const totalSaisie = quantiteVal * amendeSaisieVal;
-				  ligne += 'Quantité : ' + quantiteVal + 
-						   ' × ' + amendeSaisieVal + 
-						   ' $ = ' + totalSaisie + ' $\n\n';
-				  totalAmende += totalSaisie;
-				  totalSaisies += totalSaisie;
-				  totalAmendeMaxVal += totalSaisie;
-				} else {
-				  ligne += 'Maximale : ' + amendeMaxVal + ' $, ' + tempsMaxVal + ' TIG' +
-						   '\nRetenu : ' + amendeVal + ' $, ' + tempsVal + ' TIG\n\n';
-				  totalAmendeMaxVal += amendeMaxVal;
-				  totalAmende += amendeVal;
-				  totalTemps += tempsVal;
-				}
+          totalAmendeMaxVal += amendeMaxVal;
+          totalAmende += amendeVal;
+          totalTemps += tempsVal;
+        });
+      });
 
-				output += ligne;
-			  }
-			});
-		  });
+      const saisieLines = [];
+      document.querySelectorAll('#saisie-body tr').forEach(row => {
+        const quantity = parseFloat(row.querySelector('.saisie-quantity').value) || 0;
+        if (quantity <= 0) return;
 
-		output += 'Amende maximale: ' + totalAmendeMaxVal + ' $\n';
-		output += 'Montant des Saisies: ' + totalSaisies + ' $\n';
-		output += 'Total Amende retenue: ' + totalAmende + ' $\n';
-		output += 'Total geôle / TIG: ' + totalTemps + ' TIG';
+        const objectCell = row.cells[0].cloneNode(true);
+        objectCell.querySelectorAll('select').forEach(select => select.remove());
+        const objectName = objectCell.textContent.trim();
+        const calculation = row.querySelector('.saisie-calculation').textContent.trim();
+        const saisieTotalText = calculation.split('=').pop().replace(/[^0-9.,-]/g, '').replace(',', '.');
+        const saisieTotal = parseFloat(saisieTotalText) || 0;
 
-		document.getElementById('export-area').textContent = output;
-		document.getElementById('total-box').textContent = 'Total Amende: ' + totalAmende + ' $';
-		});
-	</script>
+        saisieLines.push(objectName + ' : ' + calculation);
+        totalSaisies += saisieTotal;
+      });
 
-	<div id="textMemo">
-	<h2>Pensez à supprimer les aides telles que :</h2>
-	<ul>
-	<li>(Decision du juge), </li>
-	<li>(+remboursement), </li>
-	<li>(Peine de mort) etc... </li>
-	</ul>
-	</div>
+      if (saisieLines.length) {
+        output += 'Saisies :\n' + saisieLines.join('\n') + '\n\n';
+      }
 
-	<div id="tableauDesAmendes">
-	<button id="listing">
-	<link a href
-	</button>
+      totalAmende += totalSaisies;
 
-	<script> // set le theme voulu
-	function setTheme(theme) {
-	document.body.classList.remove(
-	  'theme-red', 'theme-green', 'theme-yellow', 'theme-blue', 'theme-orange'
-	);
-	document.body.classList.add('theme-' + theme);
-	try { localStorage.setItem('penal-theme', theme); } catch (e) {}
-	}
+      output += 'Amende maximale: ' + totalAmendeMaxVal + ' $\n';
+      output += 'Montant des saisies: ' + formatAmount(totalSaisies) + ' $\n';
+      output += 'Total Amende retenue: ' + formatAmount(totalAmende) + ' $\n';
+      output += 'Total geôle / TIG: ' + totalTemps + ' TIG';
 
-	  (function(){
-		try {
-		  const saved = localStorage.getItem('penal-theme');
-		  if (saved) {
-			document.body.classList.remove(
-			  'theme-red', 'theme-green', 'theme-yellow', 'theme-blue', 'theme-orange'
-			);
-			document.body.classList.add('theme-' + saved);
-		  }
-		} catch(e){}
-	  })();
-	</script>
-	<script> //Surbrillance
-	  document.querySelectorAll('.article-check').forEach(chk => {
-		chk.addEventListener('change', function() {
-		  const row = this.closest('tr');
-		  if (this.checked) {
-			row.classList.add('highlighted');
-		  } else {
-			row.classList.remove('highlighted');
-		  }
-		});
-	  });
-	</script>
+      document.getElementById('export-area').textContent = output;
+      document.getElementById('total-box').textContent = 'Total Amende: ' + formatAmount(totalAmende) + ' $';
+    });
+  </script>
 
+  <div id="textMemo">
+    <h2>Pensez à supprimer les aides telles que :</h2>
+    <ul>
+      <li>(Décision du juge),</li>
+      <li>(+ remboursement),</li>
+      <li>(Peine de mort), etc.</li>
+	  <li style="font-weight: bold; font-size: 24px;"> <a href="https://last-horizon.gitbook.io/last-horizon-rp/justice/lois/usa" target="_blank">Lois du serveur</li>
+    </ul>
+  </div>
 
+  <script>
+    document.querySelectorAll('.article-check').forEach(chk => {
+      chk.addEventListener('change', function() {
+        this.closest('tr').classList.toggle('highlighted', this.checked);
+      });
+    });
+  </script>
+
+  <script>
+    (function() {
+      const saisieItems = [
+        { name: 'Résine', rate: 1.9 },
+        { name: 'Fleur séchée de cannabis', rate: 1.9 },
+        { name: 'Opium', rate: 2.1 },
+        { name: 'Hallucinogènes', rate: 2.3 },
+        { name: 'Cocaïne', rate: 2.5 },
+        { name: 'Poudre de belladone', rate: 2.7 },
+        { name: 'Moonshine', rate: 1.9 },
+        { name: 'Liqueur de pêche', rate: 1.9 },
+        { name: 'Absinthe', rate: 2.1 },
+        { name: 'Ouzo', rate: 2.3 },
+        { name: 'Rhum Noir', rate: 2.5 },
+        { name: 'Whisky Vanille', rate: 2.7 },
+        { name: 'Cagoules / Crochets', rate: 5 },
+        { name: 'Alambic / Table de chimie', rate: 500 },
+        { name: 'Rubis / Diamants / Bijoux', rate: 20 },
+        { name: "Lingot d'or", rate: 350 },
+        { name: 'Organes', rate: 3 },
+        { name: 'Arme illégale de poing', rate: 500 },
+        { name: "Arme illégale d'épaule", rate: 'weapon' },
+        { name: 'Argent sale / marqué / volé', rate: 'free' }
+      ];
+
+      const body = document.getElementById('saisie-body');
+      const totalBox = document.getElementById('saisie-totale');
+      const copyStatus = document.getElementById('saisie-copie-status');
+
+      function formatNumber(value) {
+        const rounded = Math.round((value + Number.EPSILON) * 100) / 100;
+        return Number.isInteger(rounded) ? String(rounded) : String(rounded).replace(/0+$/, '').replace(/\.$/, '');
+      }
+
+      function renderRows() {
+        body.innerHTML = saisieItems.map((item, index) => {
+          const rateControl = item.rate === 'weapon'
+            ? '<select class="saisie-rate" aria-label="Tarif arme epaule"><option value="1000">1000$</option><option value="2000">2000$</option></select>'
+            : '';
+          const rate = item.rate === 'weapon' ? 1000 : item.rate === 'free' ? 1 : item.rate;
+
+          return '<tr data-index="' + index + '">' +
+            '<td>' + item.name + rateControl + '</td>' +
+            '<td><input type="number" class="saisie-quantity" min="0" step="1" value="0"></td>' +
+            '<td class="saisie-calculation">0 × ' + formatNumber(rate) + '$ = 0$</td>' +
+            '</tr>';
+        }).join('');
+      }
+
+      function getRowValues(row) {
+        const item = saisieItems[parseInt(row.dataset.index, 10)];
+        const quantity = parseFloat(row.querySelector('.saisie-quantity').value) || 0;
+        let rate = item.rate;
+        if (rate === 'weapon') rate = parseFloat(row.querySelector('.saisie-rate').value) || 1000;
+        if (rate === 'free') rate = 1;
+        return { item, quantity, rate, total: quantity * rate };
+      }
+
+      function updateCalculator() {
+        let total = 0;
+        body.querySelectorAll('tr').forEach(row => {
+          const values = getRowValues(row);
+          row.querySelector('.saisie-calculation').textContent = formatNumber(values.quantity) + ' × ' + formatNumber(values.rate) + '$ = ' + formatNumber(values.total) + '$';
+          total += values.total;
+        });
+        totalBox.textContent = 'TOTAL : ' + formatNumber(total) + '$';
+      }
+
+      function resetCalculator() {
+        body.querySelectorAll('.saisie-quantity').forEach(input => { input.value = 0; });
+        body.querySelectorAll('.saisie-rate').forEach(select => { select.value = '1000'; });
+        copyStatus.textContent = '';
+        updateCalculator();
+      }
+
+      function buildCopyText() {
+        const lines = [];
+        let total = 0;
+        body.querySelectorAll('tr').forEach(row => {
+          const values = getRowValues(row);
+          if (values.quantity <= 0 && values.total <= 0) return;
+          lines.push(values.item.name + ' : ' + formatNumber(values.quantity) + ' × ' + formatNumber(values.rate) + '$ = ' + formatNumber(values.total) + '$');
+          total += values.total;
+        });
+        return (lines.length ? lines.join('\n') + '\n\n' : '') + 'TOTAL : ' + formatNumber(total) + '$';
+      }
+
+      async function copyDetails() {
+        const detail = buildCopyText();
+        try {
+          await navigator.clipboard.writeText(detail);
+          copyStatus.textContent = 'Détail copié.';
+        } catch (error) {
+          document.getElementById('export-area').textContent = detail;
+          copyStatus.textContent = "Copie automatique indisponible, détail placé dans l'export.";
+        }
+      }
+
+      renderRows();
+      updateCalculator();
+      body.addEventListener('input', updateCalculator);
+      body.addEventListener('change', updateCalculator);
+      document.getElementById('saisie-reset').addEventListener('click', resetCalculator);
+      document.getElementById('saisie-copie').addEventListener('click', copyDetails);
+    })();
+  </script>
 </body>
 </html>
